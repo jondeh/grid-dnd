@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Grid from './components/grid'
+import SidePanel from './components/side-panel'
+import React from 'react'
 
-function App() {
+const DEFAULT_ROWS = 3
+const DEFAULT_COLUMNS = 4
+
+function App () {
+  const [rows, setRows] = React.useState(DEFAULT_ROWS)
+  const [columns, setColumns] = React.useState(DEFAULT_COLUMNS)
+
+  const handleColumnChange = num => {
+    if (num <= 1) return
+    setColumns(+num)
+  }
+  const handleRowChange = num => {
+    if (num <= 1) return
+    setRows(+num)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <SidePanel
+        rows={rows}
+        columns={columns}
+        handleColumnChange={handleColumnChange}
+        handleRowChange={handleRowChange}
+      />
+      <Grid rows={rows} columns={columns} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

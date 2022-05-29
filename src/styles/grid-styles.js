@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 
 export const StyledGrid = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: repeat(${p => p.columns}, auto);
   grid-template-rows: repeat(${p => p.rows}, auto);
@@ -11,18 +12,20 @@ export const StyledGrid = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1;
+  background-color: grey;
 `
 export const StyledCell = styled.div`
   position: relative;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 3px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); */
   padding: 4px;
   width: ${p => p.width}px;
   height: ${p => p.height}px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #f5f5f5;
 `
 
 const columnDropZoneAnimation = keyframes`

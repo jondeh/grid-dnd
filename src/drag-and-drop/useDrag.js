@@ -41,22 +41,22 @@ export const useDrag = data => {
       }
     })
 
-    interact('.drop-now').resizable({
-      edges: { left: false, right: true, bottom: true, top: false },
-      enabled: true,
-      restrict: {
-        restriction: 'parent'
-      },
-      listeners: {
-        move: event => {
-          const { left, right, width, top, bottom, height } = event?.deltaRect
-          Object.assign(event.target.style, {
-            width: roundToNearest(event.rect.width) + 'px',
-            height: roundToNearest(event.rect.height) + 'px'
-          })
-        }
-      }
-    })
+    // interact('.drop-now').resizable({
+    //   edges: { left: false, right: true, bottom: true, top: false },
+    //   enabled: true,
+    //   restrict: {
+    //     restriction: 'parent'
+    //   },
+    //   listeners: {
+    //     move: event => {
+    //       const { left, right, width, top, bottom, height } = event?.deltaRect
+    //       Object.assign(event.target.style, {
+    //         width: roundToNearest(event.rect.width) + 'px',
+    //         height: roundToNearest(event.rect.height) + 'px'
+    //       })
+    //     }
+    //   }
+    // })
   }, [])
   return [ref]
 }

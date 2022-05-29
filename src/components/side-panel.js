@@ -4,7 +4,27 @@ import interact from 'interactjs'
 import { ITEMS, DEFAULT_WIDTH, DEFAULT_HEIGHT } from '../dataStuff'
 import { useDrag } from '../drag-and-drop/useDrag'
 
+function roundToNearest (num, x, y) {
+  return Math.round(num / DEFAULT_HEIGHT) * DEFAULT_HEIGHT
+}
+
 const SidePanel = ({ handleColumnChange, handleRowChange, rows, columns }) => {
+  interact('.drop-now').resizable({
+    edges: { left: false, right: true, bottom: true, top: false },
+    enabled: true,
+    restrict: {
+      restriction: 'parent'
+    },
+    listeners: {
+      move: event => {
+        const { left, right, width, top, bottom, height } = event?.deltaRect
+        Object.assign(event.target.style, {
+          width: roundToNearest(event.rect.width) + 'px',
+          height: roundToNearest(event.rect.height) + 'px'
+        })
+      }
+    }
+  })
   return (
     <StyledPanel className='side-panel'>
       <h5>Columns </h5>

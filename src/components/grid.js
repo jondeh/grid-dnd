@@ -11,7 +11,14 @@ import { useDrop } from '../drag-and-drop/useDrag'
 
 import interact from 'interactjs'
 
-const Grid = ({ rows, columns, defaultHeight, defaultWidth }) => {
+const Grid = ({
+  rows,
+  columns,
+  defaultHeight,
+  defaultWidth,
+  handleColumnChange,
+  handleRowChange
+}) => {
   const [ref] = useDrop({})
   const [height, setHeight] = React.useState(
     [...new Array(rows)].map(() => defaultHeight)

@@ -20,7 +20,8 @@ export const useDrag = data => {
       autoScroll: true,
       listeners: {
         start (event) {
-          event.target.style.height = data.height + 'px'
+          //   event.target.style.height =
+          //     event.target.style.height || data.height + 'px'
           console.log(event.type)
         },
         move (event) {
@@ -71,7 +72,10 @@ export const useDrop = data => {
         const gridSize = dropGrid.events.getRect()
         const draggableSize = event.relatedTarget.getBoundingClientRect()
 
+        const newThing = event.relatedTarget.cloneNode(true)
         const newElement = cloneDeep(event.interaction.interactable)
+        console.log('newElement: ', newElement)
+        // newElement.target = newThing
         newElement.target.classList.add('drop-now')
         newElement.target.style.zIndex = '10'
         newElement.target.style.position = 'absolute'

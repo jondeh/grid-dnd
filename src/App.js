@@ -36,6 +36,8 @@ function App () {
         defaultWidth={DEFAULT_WIDTH}
         rows={rows}
         columns={columns}
+        handleColumnChange={handleColumnChange}
+        handleRowChange={handleRowChange}
       />
     </div>
   )

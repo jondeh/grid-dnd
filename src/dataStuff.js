@@ -28,7 +28,7 @@ export const ITEMS = [
   },
   {
     color: createColor(),
-    height: DEFAULT_HEIGHT * 4,
+    height: DEFAULT_HEIGHT * 3,
     width: DEFAULT_WIDTH * 4,
     text: 'Multiselect'
   },
